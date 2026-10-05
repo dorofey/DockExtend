@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="background" x1="110" y1="60" x2="900" y2="970" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#242C49"/>
+      <stop offset="0.55" stop-color="#171E36"/>
+      <stop offset="1" stop-color="#101629"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="184" y1="652" x2="842" y2="838" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#A8C5FF" stop-opacity="0.11"/>
+    </linearGradient>
+    <linearGradient id="island" x1="550" y1="323" x2="822" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#B8D4FF" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="tileOne" x1="290" y1="690" x2="380" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9A9BFF"/><stop offset="1" stop-color="#6768DF"/>
+    </linearGradient>
+    <linearGradient id="tileTwo" x1="420" y1="690" x2="510" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74DBCA"/><stop offset="1" stop-color="#32AFA9"/>
+    </linearGradient>
+    <linearGradient id="tileThree" x1="550" y1="690" x2="640" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCA78"/><stop offset="1" stop-color="#F18A62"/>
+    </linearGradient>
+    <filter id="softShadow" x="90" y="400" width="844" height="500" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="218" fill="url(#background)"/>
+  <path d="M106 248C237 115 392 60 553 60c168 0 310 69 397 180" fill="none" stroke="#C9D8FF" stroke-opacity="0.12" stroke-width="3"/>
+  <circle cx="512" cy="654" r="188" fill="#72D7BC" fill-opacity="0.13" filter="url(#softShadow)"/>
+
+  <!-- Floating widget island -->
+  <rect x="508" y="296" width="320" height="202" rx="58" fill="url(#island)" stroke="#FFFFFF" stroke-opacity="0.32" stroke-width="3"/>
+  <rect x="546" y="335" width="119" height="124" rx="30" fill="#111A31" fill-opacity="0.46" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2"/>
+  <path d="M575 418v-22l18-19 17 12 17-25" fill="none" stroke="#7BE0C2" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <circle cx="627" cy="364" r="6" fill="#7BE0C2"/>
+  <rect x="686" y="342" width="100" height="15" rx="7.5" fill="#FFFFFF" fill-opacity="0.72"/>
+  <rect x="686" y="374" width="75" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.34"/>
+  <rect x="686" y="402" width="91" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.23"/>
+  <circle cx="773" cy="455" r="7" fill="#7BE0C2"/>
+
+  <!-- Compact translucent dock -->
+  <rect x="164" y="614" width="696" height="220" rx="72" fill="#090F1E" fill-opacity="0.42" filter="url(#softShadow)"/>
+  <rect x="164" y="614" width="696" height="220" rx="72" fill="url(#glass)" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="4"/>
+  <rect x="223" y="663" width="134" height="134" rx="38" fill="url(#tileOne)"/>
+  <path d="M269 704h42a7 7 0 0 1 7 7v39a7 7 0 0 1-7 7h-42a7 7 0 0 1-7-7v-39a7 7 0 0 1 7-7Z" fill="#FFFFFF" fill-opacity="0.91"/>
+  <path d="M262 717h56" stroke="#7878E7" stroke-width="7"/>
+  <rect x="390" y="663" width="134" height="134" rx="38" fill="url(#tileTwo)"/>
+  <path d="M457 695c-17 0-31 13-31 30 0 21 31 47 31 47s31-26 31-47c0-17-14-30-31-30Z" fill="#FFFFFF" fill-opacity="0.92"/>
+  <circle cx="457" cy="725" r="10" fill="#43B6AE"/>
+  <rect x="557" y="663" width="134" height="134" rx="38" fill="url(#tileThree)"/>
+  <path d="M600 745l18-21 14 12 25-31" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <circle cx="657" cy="705" r="7" fill="#FFFFFF"/>
+  <rect x="729" y="663" width="74" height="134" rx="35" fill="#FFFFFF" fill-opacity="0.15" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="766" cy="714" r="12" fill="#FFFFFF" fill-opacity="0.88"/>
+  <rect x="746" y="747" width="40" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.5"/>
+  <rect x="746" y="765" width="27" height="7" rx="3.5" fill="#FFFFFF" fill-opacity="0.3"/>
+  <circle cx="844" cy="590" r="10" fill="#7BE0C2"/>
+</svg>

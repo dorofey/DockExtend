@@ -16,6 +16,7 @@ if [[ ! -x "$binary_path" ]]; then
 fi
 cp "$binary_path" "$app_bundle/Contents/MacOS/DockExtend"
 cp "$project_dir/AppBundle/Contents/Info.plist" "$app_bundle/Contents/Info.plist"
+cp "$project_dir/AppBundle/Resources/DockExtend.icns" "$app_bundle/Contents/Resources/DockExtend.icns"
 app_version="${APP_VERSION:-$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$app_bundle/Contents/Info.plist")}"
 build_number="${APP_BUILD_NUMBER:-$app_version}"
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $app_version" "$app_bundle/Contents/Info.plist"

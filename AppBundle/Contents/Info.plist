@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>Dock Extend</string>
+	<key>CFBundleIconFile</key>
+	<string>DockExtend</string>
 	<key>CFBundleExecutable</key>
 	<string>DockExtend</string>
 	<key>CFBundleIdentifier</key>

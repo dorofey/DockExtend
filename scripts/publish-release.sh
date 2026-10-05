@@ -49,14 +49,27 @@ if [[ "$gh_user" != "dorofey" ]]; then
   exit 1
 fi
 
+signing_identity="${CODE_SIGN_IDENTITY:-}"
+if [[ -z "$signing_identity" ]]; then
+  identity_count="$(security find-identity -v -p codesigning | awk '/valid identities found/ { print $1 }')"
+  if [[ "$identity_count" != "1" ]]; then
+    echo "Set CODE_SIGN_IDENTITY to a valid Apple code-signing identity before publishing." >&2
+    exit 1
+  fi
+  signing_identity="$(security find-identity -v -p codesigning | awk '/^[[:space:]]+[0-9]+\)/ { print $2; exit }')"
+fi
+
 updates_dir="$project_dir/.release/$version"
 rm -rf "$updates_dir"
 mkdir -p "$updates_dir"
 
 DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}" \
 APP_VERSION="$version" \
-APP_BUILD_NUMBER="$version" \
+  APP_BUILD_NUMBER="$version" \
   ./scripts/build-app.sh
+
+codesign --force --deep --options runtime --sign "$signing_identity" DockExtend.app
+codesign --verify --deep --strict DockExtend.app
 
 ditto -c -k --sequesterRsrc --keepParent DockExtend.app "$updates_dir/DockExtend-macos.zip"
 awk -v version="$version" '

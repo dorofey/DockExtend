@@ -1,0 +1,6 @@
+.DS_Store
+.build/
+.codegraph/
+.remember/
+DockExtend.app/
+AGENTS.md

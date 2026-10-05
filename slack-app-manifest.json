@@ -1,0 +1,19 @@
+{
+  "display_information": {
+    "name": "DockExtend",
+    "description": "Personal unread direct-message previews in the macOS dock",
+    "background_color": "#25342d"
+  },
+  "oauth_config": {
+    "pkce_enabled": true,
+    "redirect_urls": ["dockextend-slack://oauth"],
+    "scopes": {
+      "user": ["im:read", "im:history", "users:read"]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

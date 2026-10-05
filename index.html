@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dock Extend — More room for your Mac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Dock Extend home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span>dock/extend</span>
+        </a>
+        <nav class="topnav" aria-label="Main navigation">
+          <a class="active" href="#demo">Preview</a>
+          <a href="#principles">Why it works</a>
+          <button class="ghost-button" id="customizeTop">Customize</button>
+        </nav>
+      </header>
+
+      <section class="hero" id="top">
+        <p class="eyebrow">A little more your Mac</p>
+        <h1>Your dock has<br /><em>room to think.</em></h1>
+        <p class="hero-copy">Add the things you glance at most to the space your dock already leaves behind.</p>
+        <div class="mode-switch" role="group" aria-label="Dock style">
+          <button class="mode-button" data-mode="macos">macOS Dock</button>
+          <button class="mode-button selected" data-mode="custom">Custom dock</button>
+        </div>
+      </section>
+
+      <section class="demo" id="demo" aria-label="Interactive dock preview">
+        <div class="demo-caption"><span>Live preview</span><span class="live-dot"></span><span id="previewLabel">Custom arrangement</span></div>
+        <div class="desktop-window">
+          <div class="window-chrome"><span></span><span></span><span></span><div class="address-pill">your day, at a glance</div></div>
+          <div class="window-content">
+            <div class="window-kicker">Tuesday · September 15</div>
+            <h2>Make space for<br />what matters.</h2>
+            <p>The apps are still here. Now your day is, too.</p>
+          </div>
+
+          <div class="dock-wrap compact" id="dock" data-display="compact">
+            <aside class="dock-widget dock-widget-left" data-widget="focus">
+              <div class="widget-topline"><span class="widget-icon focus-icon">◒</span><span>Focus</span><button class="widget-menu" aria-label="Focus widget menu">•••</button></div>
+              <strong>Deep work</strong>
+              <div class="focus-bar"><span></span></div>
+              <div class="widget-meta"><span>48 min left</span><span>On</span></div>
+            </aside>
+
+            <div class="dock-main">
+              <div class="dock-apps" aria-label="Applications">
+                <button class="app-icon finder" aria-label="Finder"><span class="finder-face">⌁</span></button>
+                <button class="app-icon terminal" aria-label="Terminal"><span>⌁_</span></button>
+                <button class="app-icon chrome" aria-label="Browser"><span class="chrome-core"></span></button>
+                <button class="app-icon notes" aria-label="Notes"><span>≡</span></button>
+                <button class="app-icon slack" aria-label="Slack"><span>✣</span></button>
+                <button class="app-icon music" aria-label="Music"><span>♪</span></button>
+                <button class="app-icon messages" aria-label="Messages"><span>•••</span></button>
+                <span class="dock-divider"></span>
+                <button class="app-icon blue-app" aria-label="Work app"><span>▦</span></button>
+                <button class="app-icon photo" aria-label="Photos"><span>◉</span></button>
+              </div>
+              <div class="dock-reflection"></div>
+            </div>
+
+            <aside class="dock-widget dock-widget-right" data-widget="weather">
+              <div class="widget-topline"><span class="widget-icon sun-icon">☼</span><span>Oslo</span><button class="widget-menu" aria-label="Weather widget menu">•••</button></div>
+              <strong>12° <small>Partly cloudy</small></strong>
+              <div class="weather-range"><span>10°</span><span class="weather-line"></span><span>16°</span></div>
+              <div class="widget-meta"><span>Feels like 11°</span><span>↗</span></div>
+            </aside>
+
+            <button class="add-widget" id="addWidget" aria-label="Add a widget"><span>+</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles" id="principles">
+        <div><span class="section-label">The idea</span><h2>Useful things,<br />at the edges.</h2></div>
+        <p>Keep your apps in the middle. Put the information you keep reaching for beside them—without opening another window, menu, or tab.</p>
+        <div class="principle-list"><div><span>01</span><strong>Glanceable</strong><p>See what matters in one quiet moment.</p></div><div><span>02</span><strong>Personal</strong><p>Arrange the edges around your own rhythm.</p></div><div><span>03</span><strong>Out of the way</strong><p>Helpful until you need it. Invisible when you don’t.</p></div></div>
+      </section>
+    </main>
+
+    <aside class="customize-panel" id="customizePanel" aria-hidden="true">
+      <div class="panel-head"><div><span class="section-label">Dock settings</span><h2>Make it yours.</h2></div><button class="close-panel" id="closePanel" aria-label="Close customization">×</button></div>
+      <p>Choose what gets a little more room beside your apps.</p>
+      <div class="display-setting"><span><strong>Widget display</strong><small>How much space the edges use</small></span><div class="display-toggle" role="group" aria-label="Widget display mode"><button class="display-choice selected" data-display="compact">Compact</button><button class="display-choice" data-display="full">Always full</button></div></div>
+      <div class="widget-options"><button class="option active"><span class="option-glyph">◒</span><span><strong>Focus timer</strong><small>Keep your current session close</small></span><span class="check">✓</span></button><button class="option active"><span class="option-glyph">☼</span><span><strong>Weather</strong><small>A tiny forecast for your day</small></span><span class="check">✓</span></button><button class="option"><span class="option-glyph">⌁</span><span><strong>Quick note</strong><small>Pin a thought without opening Notes</small></span><span class="check">+</span></button></div>
+      <button class="save-button" id="saveButton">Save arrangement</button>
+    </aside>
+    <div class="panel-backdrop" id="panelBackdrop"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

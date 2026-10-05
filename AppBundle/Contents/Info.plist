@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Dock Extend</string>
+	<key>CFBundleExecutable</key>
+	<string>DockExtend</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.dorofeev.DockExtend</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Dock Extend</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array><dict>
+		<key>CFBundleURLName</key><string>Slack OAuth</string>
+		<key>CFBundleURLSchemes</key><array><string>dockextend-slack</string></array>
+	</dict></array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Dock Extend uses your location to fetch your local weather forecast.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Dock Extend shows today’s calendar events in the Calendar widget.</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Dock Extend reads your calendars to show today’s events in the Calendar widget.</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Dock Extend reads and controls Music playback, and lists Google Chrome tabs and switches to the tab you select.</string>
+</dict>
+</plist>

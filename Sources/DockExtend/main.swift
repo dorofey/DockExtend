@@ -1,11 +1,13 @@
 import AppKit
 import CoreLocation
 import EventKit
+import Sparkle
 import SwiftUI
 import UniformTypeIdentifiers
 
 private extension Notification.Name {
     static let showDockSettings = Notification.Name("DockExtend.showDockSettings")
+    static let checkForUpdates = Notification.Name("DockExtend.checkForUpdates")
     static let dismissExpandedWidget = Notification.Name("DockExtend.dismissExpandedWidget")
     static let dockWidthChanged = Notification.Name("DockExtend.dockWidthChanged")
 }
@@ -22,6 +24,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var orientations: [String: DockOrientation] = [:]
     private var placingWindows = false
     private var settingsWindow: NSWindow?
+    private var updaterController: SPUStandardUpdaterController?
     private var screenObserver: NSObjectProtocol?
     private var spaceObserver: NSObjectProtocol?
     private var outsideClickMonitor: Any?
@@ -43,6 +46,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
 
         NSApp.setActivationPolicy(.accessory)
+        updaterController = SPUStandardUpdaterController(
+            startingUpdater: true,
+            updaterDelegate: nil,
+            userDriverDelegate: nil
+        )
 
         synchronizeDockWindows()
         spaceObserver = NSWorkspace.shared.notificationCenter.addObserver(
@@ -81,6 +89,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             object: nil,
             queue: .main
         ) { [weak self] notification in MainActor.assumeIsolated { self?.showSettings(dockID: notification.userInfo?["dockID"] as? String) } }
+        NotificationCenter.default.addObserver(
+            forName: .checkForUpdates,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in MainActor.assumeIsolated { self?.updaterController?.checkForUpdates(nil) } }
         NotificationCenter.default.addObserver(forName: .dockProfilesChanged, object: nil, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { self?.synchronizeDockWindows() }
         }
@@ -3375,7 +3388,6 @@ private struct DockSettingsRoot: View {
 }
 
 private struct SettingsView: View {
-    @StateObject private var updateChecker = UpdateChecker()
     @AppStorage("dock.backdropOpacity") private var backdropOpacity = 0.45
     @AppStorage("dock.horizontalPadding") private var horizontalPadding = 6.0
     @AppStorage("dock.verticalPadding") private var verticalPadding = 4.0
@@ -3400,26 +3412,10 @@ private struct SettingsView: View {
     var body: some View {
         Form {
             Section("Updates") {
-                Text(updateChecker.message)
-                    .font(.custom("JetBrainsMono Nerd Font", size: 10))
-                    .foregroundStyle(.secondary)
-                HStack {
-                    Button("Check for Updates…") {
-                        Task { await updateChecker.check() }
-                    }
-                    .disabled(updateChecker.isChecking)
-
-                    if updateChecker.isChecking {
-                        ProgressView().controlSize(.small)
-                    }
-                    Spacer()
-                    if updateChecker.latestRelease != nil {
-                        Button("View Release & Download") {
-                            updateChecker.openLatestRelease()
-                        }
-                    }
+                Button("Check for Updates…") {
+                    NotificationCenter.default.post(name: .checkForUpdates, object: nil)
                 }
-                Text("Current version: \(updateChecker.installedVersion). Downloads are installed manually from GitHub.")
+                Text("Current version: \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"). Updates are checked only when you click the button.")
                     .font(.custom("JetBrainsMono Nerd Font", size: 10))
                     .foregroundStyle(.secondary)
             }

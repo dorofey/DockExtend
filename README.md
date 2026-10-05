@@ -4,10 +4,15 @@ Native macOS prototype for a dock with configurable side widgets.
 
 ## Updates
 
-In DockExtend Settings, choose **Check for Updates…** to compare your installed
-version with the latest stable release on [GitHub](https://github.com/dorofey/DockExtend/releases).
-Choose **View Release & Download** to download a release, then replace the app
-in Applications manually. See [CHANGELOG.md](CHANGELOG.md) for release history.
+In DockExtend Settings, choose **Check for Updates…**. If a release is
+available, Sparkle shows its release notes and an **Install Update** button.
+The app checks only when you ask and installs only after you click the button.
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
+Updates are signed with a Sparkle EdDSA key. To publish a release, update the
+version in `AppBundle/Contents/Info.plist` and its notes in `CHANGELOG.md`, then
+run `scripts/publish-release.sh <version>` from the authenticated `dorofey`
+checkout. The signing key stays in the maintainer's macOS Keychain.
 
 ## Multiple docks
 

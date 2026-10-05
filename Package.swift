@@ -7,7 +7,13 @@ let package = Package(
     products: [
         .executable(name: "DockExtend", targets: ["DockExtend"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/sparkle-project/Sparkle", from: "2.10.0")
+    ],
     targets: [
-        .executableTarget(name: "DockExtend")
+        .executableTarget(
+            name: "DockExtend",
+            dependencies: [.product(name: "Sparkle", package: "Sparkle")]
+        )
     ]
 )

@@ -4,3 +4,5 @@
 .remember/
 DockExtend.app/
 AGENTS.md
+.release/
+.release-tools/

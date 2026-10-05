@@ -18,6 +18,16 @@
 	<string>0.1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/dorofey/DockExtend/main/appcast.xml</string>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
+	<key>SUAllowsAutomaticUpdates</key>
+	<false/>
+	<key>SUPublicEDKey</key>
+	<string>jckPbY6/cKFzDDepHbXqh1il1BVCByOP03QIwBHtyqY=</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>13.0</string>
 	<key>LSUIElement</key>

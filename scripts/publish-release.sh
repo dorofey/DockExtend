@@ -24,7 +24,7 @@ fi
 
 sparkle_tools="${SPARKLE_TOOLS:-}"
 if [[ -z "$sparkle_tools" ]]; then
-  sparkle_tools="$project_dir/.release-tools/Sparkle-2.10.0/bin"
+  sparkle_tools="$project_dir/.release-tools/bin"
   if [[ ! -x "$sparkle_tools/generate_appcast" ]]; then
     mkdir -p "$project_dir/.release-tools"
     curl -L --fail \
